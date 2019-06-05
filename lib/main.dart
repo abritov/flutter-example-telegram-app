@@ -143,6 +143,7 @@ class _MyHomePageState extends State<MyHomePage>
             SliverList(
               delegate: SliverChildListDelegate([
                 Container(
+                    height: 35.0,
                     margin: EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
                         color: Color(0xe9e9e9e9),

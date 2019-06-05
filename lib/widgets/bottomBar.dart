@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 
 class TgBottomTab extends StatefulWidget {
   TgBottomTab({this.title, this.icon});
-  String title;
-  IconData icon;
+  final String title;
+  final IconData icon;
 
   @override
   _TgBottomTabState createState() => _TgBottomTabState();

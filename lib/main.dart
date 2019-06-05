@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage>
                   ),
                   child: Text(
                     "Contacts",
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(color: Colors.grey, fontSize: 12.0),
                   )),
               Tab(
                   icon: IconTheme(
@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage>
                       child: Icon(Icons.chat_bubble_outline)),
                   child: Text(
                     "Chats",
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(color: Colors.grey, fontSize: 12.0),
                   )),
               Tab(
                   icon: IconTheme(
@@ -118,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage>
                       child: Icon(Icons.settings)),
                   child: Text(
                     "Settings",
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(color: Colors.grey, fontSize: 12.0),
                   )),
             ],
           ),
@@ -128,7 +128,8 @@ class _MyHomePageState extends State<MyHomePage>
             SliverAppBar(
               pinned: true,
               backgroundColor: Color(0xf7f7f7f7),
-              title: Text('Contacts', style: TextStyle(color: Colors.black)),
+              title: Text('Contacts',
+                  style: TextStyle(color: Colors.black, fontSize: 17.0)),
               actions: [
                 IconButton(
                   icon: Icon(Icons.add),
@@ -152,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage>
                         icon: Icon(Icons.search),
                         label: Text(
                           "Search",
-                          style: TextStyle(fontSize: 18.0),
+                          style: TextStyle(fontSize: 16.0),
                         )))
               ]),
             ),
@@ -162,8 +163,12 @@ class _MyHomePageState extends State<MyHomePage>
                 final contact = contacts[index];
                 return ListTile(
                     leading: CircleAvatar(),
-                    title: Text(contact.name),
-                    subtitle: Text("last seen ${contact.lastSeen}"));
+                    title: Text(
+                      contact.name,
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                    subtitle: Text("last seen ${contact.lastSeen}",
+                        style: TextStyle(fontSize: 14.0)));
               }, childCount: contacts.length),
             ),
           ],

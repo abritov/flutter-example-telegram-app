@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage>
 
   @override
   void initState() {
-    _controller = TabController(length: 3, vsync: this);
+    _controller = TabController(initialIndex: 0, length: 3, vsync: this);
   }
 
   void _incrementCounter() {

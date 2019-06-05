@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage>
     // than having to individually change instances of widgets.
     final contacts = repeat([
       ContactModel(name: "John Appleseed", lastSeen: "1 minute ago"),
-      ContactModel(name: "Phill Shiller", lastSeen: "40 minute ago"),
+      ContactModel(name: "Phill Shiller", lastSeen: "40 minutes ago"),
       ContactModel(name: "Steve Balmer", lastSeen: "recently"),
     ], 10);
     return Scaffold(

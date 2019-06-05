@@ -58,6 +58,12 @@ class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   int _counter = 0;
   TabController _controller;
+  List<Widget> _bottomTabs = [
+    TgBottomTabStateless(
+        icon: Icons.person_pin, title: "Contacts", focused: true),
+    TgBottomTabStateless(icon: Icons.chat_bubble_outline, title: "Chats"),
+    TgBottomTabStateless(icon: Icons.settings, title: "Settings"),
+  ];
 
   @override
   void initState() {
@@ -72,6 +78,21 @@ class _MyHomePageState extends State<MyHomePage>
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+    });
+  }
+
+  void _updateTabs(int index) {
+    setState(() {
+      _bottomTabs = [
+        TgBottomTabStateless(
+            icon: Icons.person_pin, title: "Contacts", focused: index == 0),
+        TgBottomTabStateless(
+            icon: Icons.chat_bubble_outline,
+            title: "Chats",
+            focused: index == 1),
+        TgBottomTabStateless(
+            icon: Icons.settings, title: "Settings", focused: index == 2),
+      ];
     });
   }
 
@@ -93,13 +114,10 @@ class _MyHomePageState extends State<MyHomePage>
           decoration: BoxDecoration(color: Color(0xf7f7f7f7)),
           height: 53.0,
           child: TabBar(
+            onTap: (index) => _updateTabs(index),
             controller: _controller,
             indicatorColor: Colors.transparent,
-            tabs: [
-              TgBottomTab(icon: Icons.person_pin, title: "Contacts"),
-              TgBottomTab(icon: Icons.chat_bubble_outline, title: "Chats"),
-              TgBottomTab(icon: Icons.settings, title: "Settings"),
-            ],
+            tabs: _bottomTabs,
           ),
         ),
         appBar: PreferredSize(

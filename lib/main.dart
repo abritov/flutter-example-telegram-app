@@ -53,8 +53,15 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   int _counter = 0;
+  TabController _controller;
+
+  @override
+  void initState() {
+    _controller = TabController(length: 3, vsync: this);
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -81,50 +88,85 @@ class _MyHomePageState extends State<MyHomePage> {
       ContactModel(name: "Steve Balmer", lastSeen: "recently"),
     ], 10);
     return Scaffold(
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(color: Color(0xf7f7f7f7)),
+          height: 53.0,
+          child: TabBar(
+            controller: _controller,
+            indicatorColor: Colors.transparent,
+            tabs: [
+              Tab(
+                  icon: IconTheme(
+                    data: IconThemeData(color: Colors.grey),
+                    child: Icon(Icons.person_pin),
+                  ),
+                  child: Text(
+                    "Contacts",
+                    style: TextStyle(color: Colors.grey),
+                  )),
+              Tab(
+                  icon: IconTheme(
+                      data: IconThemeData(color: Colors.grey),
+                      child: Icon(Icons.chat_bubble_outline)),
+                  child: Text(
+                    "Chats",
+                    style: TextStyle(color: Colors.grey),
+                  )),
+              Tab(
+                  icon: IconTheme(
+                      data: IconThemeData(color: Colors.grey),
+                      child: Icon(Icons.settings)),
+                  child: Text(
+                    "Settings",
+                    style: TextStyle(color: Colors.grey),
+                  )),
+            ],
+          ),
+        ),
         body: CustomScrollView(
-      slivers: <Widget>[
-        SliverAppBar(
-          pinned: true,
-          backgroundColor: Color(0xf7f7f7f7),
-          title: Text('Contacts', style: TextStyle(color: Colors.black)),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.add),
-              color: Color(0xFF5E92D7),
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onPressed: () {},
+          slivers: <Widget>[
+            SliverAppBar(
+              pinned: true,
+              backgroundColor: Color(0xf7f7f7f7),
+              title: Text('Contacts', style: TextStyle(color: Colors.black)),
+              actions: [
+                IconButton(
+                  icon: Icon(Icons.add),
+                  color: Color(0xFF5E92D7),
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onPressed: () {},
+                ),
+              ],
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                Container(
+                    margin: EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                        color: Color(0xe9e9e9e9),
+                        borderRadius: BorderRadius.all(Radius.circular(8.0))),
+                    child: FlatButton.icon(
+                        onPressed: () {},
+                        textColor: Colors.grey,
+                        icon: Icon(Icons.search),
+                        label: Text(
+                          "Search",
+                          style: TextStyle(fontSize: 18.0),
+                        )))
+              ]),
+            ),
+            SliverList(
+              delegate:
+                  SliverChildBuilderDelegate((BuildContext context, int index) {
+                final contact = contacts[index];
+                return ListTile(
+                    leading: CircleAvatar(),
+                    title: Text(contact.name),
+                    subtitle: Text("last seen ${contact.lastSeen}"));
+              }, childCount: contacts.length),
             ),
           ],
-        ),
-        SliverList(
-          delegate: SliverChildListDelegate([
-            Container(
-                margin: EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                    color: Color(0xe9e9e9e9),
-                    borderRadius: BorderRadius.all(Radius.circular(8.0))),
-                child: FlatButton.icon(
-                    onPressed: () {},
-                    textColor: Colors.grey,
-                    icon: Icon(Icons.search),
-                    label: Text(
-                      "Search",
-                      style: TextStyle(fontSize: 18.0),
-                    )))
-          ]),
-        ),
-        SliverList(
-          delegate:
-              SliverChildBuilderDelegate((BuildContext context, int index) {
-            final contact = contacts[index];
-            return ListTile(
-                leading: CircleAvatar(),
-                title: Text(contact.name),
-                subtitle: Text("last seen ${contact.lastSeen}"));
-          }, childCount: contacts.length),
-        ),
-      ],
-    ));
+        ));
   }
 }

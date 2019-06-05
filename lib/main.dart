@@ -156,7 +156,15 @@ class _MyHomePageState extends State<MyHomePage>
                         label: Text(
                           "Search",
                           style: TextStyle(fontSize: 16.0),
-                        )))
+                        ))),
+                ListTile(
+                    leading: Padding(
+                        padding: EdgeInsets.only(left: 5.0),
+                        child: IconTheme(
+                            data: IconThemeData(color: Colors.blue),
+                            child: Icon(Icons.person_add))),
+                    title: Text("Invite Friends",
+                        style: TextStyle(color: Colors.blue))),
               ]),
             ),
             SliverList(

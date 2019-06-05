@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_ui_example_1/widgets/bottomBar.dart';
 
 import 'models/contact.dart';
 
@@ -95,31 +96,9 @@ class _MyHomePageState extends State<MyHomePage>
             controller: _controller,
             indicatorColor: Colors.transparent,
             tabs: [
-              Tab(
-                  icon: IconTheme(
-                    data: IconThemeData(color: Colors.grey),
-                    child: Icon(Icons.person_pin),
-                  ),
-                  child: Text(
-                    "Contacts",
-                    style: TextStyle(color: Colors.grey, fontSize: 12.0),
-                  )),
-              Tab(
-                  icon: IconTheme(
-                      data: IconThemeData(color: Colors.grey),
-                      child: Icon(Icons.chat_bubble_outline)),
-                  child: Text(
-                    "Chats",
-                    style: TextStyle(color: Colors.grey, fontSize: 12.0),
-                  )),
-              Tab(
-                  icon: IconTheme(
-                      data: IconThemeData(color: Colors.grey),
-                      child: Icon(Icons.settings)),
-                  child: Text(
-                    "Settings",
-                    style: TextStyle(color: Colors.grey, fontSize: 12.0),
-                  )),
+              TgBottomTab(icon: Icons.person_pin, title: "Contacts"),
+              TgBottomTab(icon: Icons.chat_bubble_outline, title: "Chats"),
+              TgBottomTab(icon: Icons.settings, title: "Settings"),
             ],
           ),
         ),

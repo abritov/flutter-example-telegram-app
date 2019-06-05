@@ -123,6 +123,10 @@ class _MyHomePageState extends State<MyHomePage>
             ],
           ),
         ),
+        appBar: PreferredSize(
+          preferredSize: Size(0.0, 0.0),
+          child: Text(""),
+        ),
         body: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(

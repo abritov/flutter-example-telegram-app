@@ -172,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage>
                         ))),
                 ListTile(
                     leading: Padding(
-                        padding: EdgeInsets.only(left: 5.0),
+                        padding: EdgeInsets.only(left: 8.0),
                         child: IconTheme(
                             data: IconThemeData(color: Colors.blue),
                             child: Icon(Icons.person_add))),

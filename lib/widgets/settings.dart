@@ -11,6 +11,10 @@ class SettingsPage extends StatelessWidget {
       decoration: BoxDecoration(color: Color(0xFFEFEEF3)),
       height: 40.0,
     );
+    final arrowButton = IconButton(
+      icon: Icon(Icons.arrow_forward_ios),
+      iconSize: 15.0,
+    );
     return CustomScrollView(slivers: [
       SliverAppBar(
           pinned: true,
@@ -103,10 +107,7 @@ class SettingsPage extends StatelessWidget {
               data: IconThemeData(color: Colors.green),
               child: Icon(Icons.message),
             ),
-            trailing: IconButton(
-              icon: Icon(Icons.arrow_forward_ios),
-              iconSize: 15.0,
-            ),
+            trailing: arrowButton,
           ),
           ListTile(
             dense: true,
@@ -118,10 +119,7 @@ class SettingsPage extends StatelessWidget {
               data: IconThemeData(color: Colors.green),
               child: Icon(Icons.call),
             ),
-            trailing: IconButton(
-              icon: Icon(Icons.arrow_forward_ios),
-              iconSize: 15.0,
-            ),
+            trailing: arrowButton,
           ),
           ListTile(
             dense: true,
@@ -133,10 +131,7 @@ class SettingsPage extends StatelessWidget {
               data: IconThemeData(color: Colors.green),
               child: Icon(Icons.store_mall_directory),
             ),
-            trailing: IconButton(
-              icon: Icon(Icons.arrow_forward_ios),
-              iconSize: 15.0,
-            ),
+            trailing: arrowButton,
           ),
           gap,
           ListTile(
@@ -149,10 +144,7 @@ class SettingsPage extends StatelessWidget {
               data: IconThemeData(color: Colors.green),
               child: Icon(Icons.surround_sound),
             ),
-            trailing: IconButton(
-              icon: Icon(Icons.arrow_forward_ios),
-              iconSize: 15.0,
-            ),
+            trailing: arrowButton,
           ),
           ListTile(
             dense: true,
@@ -164,10 +156,7 @@ class SettingsPage extends StatelessWidget {
               data: IconThemeData(color: Colors.green),
               child: Icon(Icons.security),
             ),
-            trailing: IconButton(
-              icon: Icon(Icons.arrow_forward_ios),
-              iconSize: 15.0,
-            ),
+            trailing: arrowButton,
           ),
           ListTile(
             dense: true,
@@ -179,10 +168,7 @@ class SettingsPage extends StatelessWidget {
               data: IconThemeData(color: Colors.green),
               child: Icon(Icons.data_usage),
             ),
-            trailing: IconButton(
-              icon: Icon(Icons.arrow_forward_ios),
-              iconSize: 15.0,
-            ),
+            trailing: arrowButton,
           ),
           ListTile(
             dense: true,
@@ -194,10 +180,7 @@ class SettingsPage extends StatelessWidget {
               data: IconThemeData(color: Colors.green),
               child: Icon(Icons.color_lens),
             ),
-            trailing: IconButton(
-              icon: Icon(Icons.arrow_forward_ios),
-              iconSize: 15.0,
-            ),
+            trailing: arrowButton,
           ),
         ]),
       )

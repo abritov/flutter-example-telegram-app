@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_ui_example_1/widgets/bottomBar.dart';
 import 'package:my_ui_example_1/widgets/contact.dart';
+import 'package:my_ui_example_1/widgets/search.dart';
 
 import 'models/contact.dart';
 
@@ -120,20 +121,7 @@ class _MyHomePageState extends State<MyHomePage>
                 )),
             SliverList(
               delegate: SliverChildListDelegate([
-                Container(
-                    height: 35.0,
-                    margin: EdgeInsets.all(10.0),
-                    decoration: BoxDecoration(
-                        color: Color(0xe9e9e9e9),
-                        borderRadius: BorderRadius.all(Radius.circular(8.0))),
-                    child: FlatButton.icon(
-                        onPressed: () {},
-                        textColor: Colors.grey,
-                        icon: Icon(Icons.search),
-                        label: Text(
-                          "Search",
-                          style: TextStyle(fontSize: 16.0),
-                        ))),
+                SearchBoxWidget(),
                 ListTile(
                     leading: Padding(
                         padding: EdgeInsets.only(left: 8.0),

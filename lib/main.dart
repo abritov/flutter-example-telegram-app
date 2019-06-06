@@ -94,10 +94,13 @@ class _MyHomePageState extends State<MyHomePage>
           preferredSize: Size(0.0, 0.0),
           child: Text(""),
         ),
-        body: TabBarView(controller: _tabController, children: [
-          ContactsPage(contacts),
-          Icon(Icons.directions_transit),
-          SettingsPage(),
-        ]));
+        body: TabBarView(
+            controller: _tabController,
+            physics: NeverScrollableScrollPhysics(),
+            children: [
+              ContactsPage(contacts),
+              Icon(Icons.directions_transit),
+              SettingsPage(),
+            ]));
   }
 }

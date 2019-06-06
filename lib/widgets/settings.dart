@@ -195,7 +195,6 @@ class SettingsPage extends StatelessWidget {
                           Text("@telegram", style: TextStyle(fontSize: 16.0))
                         ])),
                 trailing: IconButton(
-                  padding: EdgeInsets.only(left: 30.0),
                   icon: Icon(Icons.arrow_forward_ios),
                   iconSize: 15.0,
                 ),

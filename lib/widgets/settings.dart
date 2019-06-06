@@ -8,8 +8,7 @@ class SettingsPage extends StatelessWidget {
     final _borderSideDivider =
         BorderSide(width: 1.0, color: Theme.of(context).dividerColor);
     final gap = Container(
-      decoration: BoxDecoration(color: Colors.grey),
-      // width: 50.0,
+      decoration: BoxDecoration(color: Color(0xFFEFEEF3)),
       height: 40.0,
     );
     return CustomScrollView(slivers: [
@@ -70,36 +69,26 @@ class SettingsPage extends StatelessWidget {
                 ),
               )),
           gap,
-          Container(
-              padding: EdgeInsets.all(15.0),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    IconTheme(
-                      data: IconThemeData(color: Colors.green),
-                      child: Icon(Icons.sentiment_satisfied),
-                    ),
-                    Text("Proxy"),
-                    Text("Disabled"),
-                    IconButton(
-                      padding: EdgeInsets.only(left: 30.0),
-                      icon: Icon(Icons.arrow_forward_ios),
-                      iconSize: 15.0,
-                    ),
-                  ])),
-          gap,
           ListTile(
               dense: true,
-              title: Text("Proxy"),
+              title: Text(
+                "Proxy",
+                style: TextStyle(fontSize: 16.0),
+              ),
               leading: IconTheme(
                 data: IconThemeData(color: Colors.green),
                 child: Icon(Icons.sentiment_satisfied),
               ),
-              trailing: IconButton(
-                icon: Icon(Icons.arrow_forward_ios),
+              trailing: FlatButton(
                 onPressed: () {},
-                iconSize: 15.0,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text("Disabled", style: TextStyle(fontSize: 15.0)),
+                    const SizedBox(width: 4.0),
+                    Icon(Icons.arrow_forward_ios),
+                  ],
+                ),
               )),
           gap
         ]),

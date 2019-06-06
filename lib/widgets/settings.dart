@@ -50,18 +50,20 @@ class SettingsPage extends StatelessWidget {
                   color: Colors.white,
                   border: Border(
                       bottom: _borderSideDivider, top: _borderSideDivider)),
-              padding: EdgeInsets.only(left: 12.0, right: 15.0),
-              // margin: EdgeInsets.only(top: 10, bottom: 8.0),
+              height: 90.0,
               child: ListTile(
                 leading: CircleAvatar(
                   child: Text("Me"),
                   radius: 30.0,
                 ),
-                title: Text("Alexander",
-                    style:
-                        TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500)),
+                title: Padding(
+                  padding: EdgeInsets.only(top: 12.0),
+                  child: Text("Alexander",
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.w500)),
+                ),
                 subtitle: Padding(
-                    padding: EdgeInsets.only(top: 4.0),
+                    padding: EdgeInsets.only(top: 2.0),
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

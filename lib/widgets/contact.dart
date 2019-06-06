@@ -8,9 +8,13 @@ class ContactWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final shortName =
+        "${contact.name.substring(0, 1)}${contact.lastName.substring(0, 1)}";
     return ListTile(
         dense: true,
-        leading: CircleAvatar(),
+        leading: CircleAvatar(
+          child: Text(shortName),
+        ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [

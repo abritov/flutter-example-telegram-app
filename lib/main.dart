@@ -37,7 +37,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
-  TabController _controller;
+  TabController _tabController;
   List<Widget> _bottomTabs = [
     TgBottomTabStateless(
         icon: Icons.person_pin, title: "Contacts", focused: true),
@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage>
 
   @override
   void initState() {
-    _controller = TabController(initialIndex: 0, length: 3, vsync: this);
+    _tabController = TabController(initialIndex: 0, length: 3, vsync: this);
   }
 
   void _updateTabs(int index) {
@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage>
           height: 54.0,
           child: TabBar(
             onTap: (index) => _updateTabs(index),
-            controller: _controller,
+            controller: _tabController,
             indicatorColor: Colors.transparent,
             tabs: _bottomTabs,
           ),
@@ -94,59 +94,63 @@ class _MyHomePageState extends State<MyHomePage>
           preferredSize: Size(0.0, 0.0),
           child: Text(""),
         ),
-        body: CustomScrollView(
-          slivers: <Widget>[
-            SliverAppBar(
-                pinned: true,
-                backgroundColor: Color(0xf7f7f7f7),
-                title: Text('Contacts',
-                    style: TextStyle(color: Colors.black, fontSize: 17.0)),
-                actions: [
-                  IconButton(
-                    icon: Icon(Icons.add),
-                    color: Color(0xFF5E92D7),
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onPressed: () {},
-                  ),
-                ],
-                bottom: PreferredSize(
-                  preferredSize: Size(1.0, 1.0),
-                  child: Container(
-                      decoration: BoxDecoration(
-                          border: Border(
-                              bottom: BorderSide(
-                                  width: 1.0,
-                                  color: Theme.of(context).dividerColor)))),
-                )),
-            SliverList(
-              delegate: SliverChildListDelegate([
-                SearchBoxWidget(),
-                ListTile(
-                    leading: Padding(
-                        padding: EdgeInsets.only(left: 8.0),
-                        child: IconTheme(
-                            data: IconThemeData(color: Colors.blue),
-                            child: Icon(Icons.person_add))),
-                    title: Text("Invite Friends",
-                        style: TextStyle(color: Colors.blue))),
-              ]),
-            ),
-            SliverList(
-              delegate:
-                  SliverChildBuilderDelegate((BuildContext context, int index) {
-                return Container(
-                  decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      border: Border(
-                          bottom: BorderSide(
-                              width: 1.0,
-                              color: Theme.of(context).dividerColor))),
-                  child: ContactWidget(contacts[index], true),
-                );
-              }, childCount: contacts.length),
-            ),
-          ],
-        ));
+        body: TabBarView(controller: _tabController, children: [
+          CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                  pinned: true,
+                  backgroundColor: Color(0xf7f7f7f7),
+                  title: Text('Contacts',
+                      style: TextStyle(color: Colors.black, fontSize: 17.0)),
+                  actions: [
+                    IconButton(
+                      icon: Icon(Icons.add),
+                      color: Color(0xFF5E92D7),
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onPressed: () {},
+                    ),
+                  ],
+                  bottom: PreferredSize(
+                    preferredSize: Size(1.0, 1.0),
+                    child: Container(
+                        decoration: BoxDecoration(
+                            border: Border(
+                                bottom: BorderSide(
+                                    width: 1.0,
+                                    color: Theme.of(context).dividerColor)))),
+                  )),
+              SliverList(
+                delegate: SliverChildListDelegate([
+                  SearchBoxWidget(),
+                  ListTile(
+                      leading: Padding(
+                          padding: EdgeInsets.only(left: 8.0),
+                          child: IconTheme(
+                              data: IconThemeData(color: Colors.blue),
+                              child: Icon(Icons.person_add))),
+                      title: Text("Invite Friends",
+                          style: TextStyle(color: Colors.blue))),
+                ]),
+              ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        border: Border(
+                            bottom: BorderSide(
+                                width: 1.0,
+                                color: Theme.of(context).dividerColor))),
+                    child: ContactWidget(contacts[index], true),
+                  );
+                }, childCount: contacts.length),
+              ),
+            ],
+          ),
+          Icon(Icons.directions_transit),
+          Icon(Icons.directions_bike),
+        ]));
   }
 }

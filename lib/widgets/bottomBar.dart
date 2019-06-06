@@ -36,14 +36,14 @@ class _TgBottomTabState extends State<TgBottomTab> {
   @override
   Widget build(BuildContext context) {
     return Tab(
-        icon: IconTheme(
-            data: IconThemeData(color: _focused ? Colors.blue : Colors.grey),
-            child: Icon(widget.icon)),
-        child: Text(
-          widget.title,
-          style: TextStyle(
-                color: focused ? Colors.blue : Colors.grey, fontSize: 12.0),
-          )),
+      icon: IconTheme(
+          data: IconThemeData(color: _focused ? Colors.blue : Colors.grey),
+          child: Icon(widget.icon)),
+      child: Text(
+        widget.title,
+        style: TextStyle(
+            color: _focused ? Colors.blue : Colors.grey, fontSize: 12.0),
+      ),
     );
   }
 }

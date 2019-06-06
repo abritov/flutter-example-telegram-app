@@ -92,7 +92,113 @@ class SettingsPage extends StatelessWidget {
                   ],
                 ),
               )),
-          gap
+          gap,
+          ListTile(
+            dense: true,
+            title: Text(
+              "Saved messages",
+              style: TextStyle(fontSize: 16.0),
+            ),
+            leading: IconTheme(
+              data: IconThemeData(color: Colors.green),
+              child: Icon(Icons.message),
+            ),
+            trailing: IconButton(
+              icon: Icon(Icons.arrow_forward_ios),
+              iconSize: 15.0,
+            ),
+          ),
+          ListTile(
+            dense: true,
+            title: Text(
+              "Recent Calls",
+              style: TextStyle(fontSize: 16.0),
+            ),
+            leading: IconTheme(
+              data: IconThemeData(color: Colors.green),
+              child: Icon(Icons.call),
+            ),
+            trailing: IconButton(
+              icon: Icon(Icons.arrow_forward_ios),
+              iconSize: 15.0,
+            ),
+          ),
+          ListTile(
+            dense: true,
+            title: Text(
+              "Stickers",
+              style: TextStyle(fontSize: 16.0),
+            ),
+            leading: IconTheme(
+              data: IconThemeData(color: Colors.green),
+              child: Icon(Icons.store_mall_directory),
+            ),
+            trailing: IconButton(
+              icon: Icon(Icons.arrow_forward_ios),
+              iconSize: 15.0,
+            ),
+          ),
+          gap,
+          ListTile(
+            dense: true,
+            title: Text(
+              "Notifications and Sounds",
+              style: TextStyle(fontSize: 16.0),
+            ),
+            leading: IconTheme(
+              data: IconThemeData(color: Colors.green),
+              child: Icon(Icons.surround_sound),
+            ),
+            trailing: IconButton(
+              icon: Icon(Icons.arrow_forward_ios),
+              iconSize: 15.0,
+            ),
+          ),
+          ListTile(
+            dense: true,
+            title: Text(
+              "Privacy and Security",
+              style: TextStyle(fontSize: 16.0),
+            ),
+            leading: IconTheme(
+              data: IconThemeData(color: Colors.green),
+              child: Icon(Icons.security),
+            ),
+            trailing: IconButton(
+              icon: Icon(Icons.arrow_forward_ios),
+              iconSize: 15.0,
+            ),
+          ),
+          ListTile(
+            dense: true,
+            title: Text(
+              "Data and Storage",
+              style: TextStyle(fontSize: 16.0),
+            ),
+            leading: IconTheme(
+              data: IconThemeData(color: Colors.green),
+              child: Icon(Icons.data_usage),
+            ),
+            trailing: IconButton(
+              icon: Icon(Icons.arrow_forward_ios),
+              iconSize: 15.0,
+            ),
+          ),
+          ListTile(
+            dense: true,
+            title: Text(
+              "Appearance",
+              style: TextStyle(fontSize: 16.0),
+            ),
+            leading: IconTheme(
+              data: IconThemeData(color: Colors.green),
+              child: Icon(Icons.color_lens),
+            ),
+            trailing: IconButton(
+              icon: Icon(Icons.arrow_forward_ios),
+              iconSize: 15.0,
+            ),
+          ),
         ]),
       )
     ]);

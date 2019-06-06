@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_ui_example_1/widgets/bottomBar.dart';
+import 'package:my_ui_example_1/widgets/contact.dart';
 
 import 'models/contact.dart';
 
@@ -105,9 +106,11 @@ class _MyHomePageState extends State<MyHomePage>
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     final contacts = repeat([
-      ContactModel(name: "John Appleseed", lastSeen: "1 minute ago"),
-      ContactModel(name: "Phill Shiller", lastSeen: "40 minutes ago"),
-      ContactModel(name: "Steve Balmer", lastSeen: "recently"),
+      ContactModel(
+          name: "John", lastName: "Appleseed", lastSeen: "1 minute ago"),
+      ContactModel(
+          name: "Phill", lastName: "Shiller", lastSeen: "40 minutes ago"),
+      ContactModel(name: "Steve", lastName: "Balmer", lastSeen: "recently"),
     ], 10);
     return Scaffold(
         bottomNavigationBar: Container(
@@ -183,7 +186,6 @@ class _MyHomePageState extends State<MyHomePage>
             SliverList(
               delegate:
                   SliverChildBuilderDelegate((BuildContext context, int index) {
-                final contact = contacts[index];
                 return Container(
                   decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
@@ -191,15 +193,7 @@ class _MyHomePageState extends State<MyHomePage>
                           bottom: BorderSide(
                               width: 1.0,
                               color: Theme.of(context).dividerColor))),
-                  child: ListTile(
-                      dense: true,
-                      leading: CircleAvatar(),
-                      title: Text(
-                        contact.name,
-                        style: TextStyle(fontSize: 15.0),
-                      ),
-                      subtitle: Text("last seen ${contact.lastSeen}",
-                          style: TextStyle(fontSize: 14.0))),
+                  child: ContactWidget(contacts[index]),
                 );
               }, childCount: contacts.length),
             ),

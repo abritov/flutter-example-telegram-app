@@ -184,14 +184,23 @@ class _MyHomePageState extends State<MyHomePage>
               delegate:
                   SliverChildBuilderDelegate((BuildContext context, int index) {
                 final contact = contacts[index];
-                return ListTile(
-                    leading: CircleAvatar(),
-                    title: Text(
-                      contact.name,
-                      style: TextStyle(fontSize: 15.0),
-                    ),
-                    subtitle: Text("last seen ${contact.lastSeen}",
-                        style: TextStyle(fontSize: 14.0)));
+                return Container(
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      border: Border(
+                          bottom: BorderSide(
+                              width: 1.0,
+                              color: Theme.of(context).dividerColor))),
+                  child: ListTile(
+                      dense: true,
+                      leading: CircleAvatar(),
+                      title: Text(
+                        contact.name,
+                        style: TextStyle(fontSize: 15.0),
+                      ),
+                      subtitle: Text("last seen ${contact.lastSeen}",
+                          style: TextStyle(fontSize: 14.0))),
+                );
               }, childCount: contacts.length),
             ),
           ],

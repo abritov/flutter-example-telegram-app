@@ -10,9 +10,12 @@ class TgBottomTabStateless extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Tab(
-        icon: IconTheme(
-            data: IconThemeData(color: focused ? Colors.blue : Colors.grey),
-            child: Icon(icon)),
+        icon: Padding(
+          padding: EdgeInsets.only(top: 5.0),
+          child: IconTheme(
+              data: IconThemeData(color: focused ? Colors.blue : Colors.grey),
+              child: Icon(icon)),
+        ),
         child: Text(
           title,
           style: TextStyle(

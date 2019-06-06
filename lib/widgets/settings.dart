@@ -86,7 +86,9 @@ class SettingsPage extends StatelessWidget {
                   children: <Widget>[
                     Text("Disabled", style: TextStyle(fontSize: 15.0)),
                     const SizedBox(width: 4.0),
-                    Icon(Icons.arrow_forward_ios),
+                    IconTheme(
+                        data: IconThemeData(size: 15.0),
+                        child: Icon(Icons.arrow_forward_ios)),
                   ],
                 ),
               )),

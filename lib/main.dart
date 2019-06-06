@@ -160,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage>
                           bottom: BorderSide(
                               width: 1.0,
                               color: Theme.of(context).dividerColor))),
-                  child: ContactWidget(contacts[index]),
+                  child: ContactWidget(contacts[index], true),
                 );
               }, childCount: contacts.length),
             ),

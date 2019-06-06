@@ -3,15 +3,16 @@ import 'package:flutter/widgets.dart';
 import 'package:my_ui_example_1/models/contact.dart';
 
 class ContactWidget extends StatelessWidget {
-  ContactWidget(this.contact);
+  ContactWidget(this.contact, this.dense);
   ContactModel contact;
+  bool dense = false;
 
   @override
   Widget build(BuildContext context) {
     final shortName =
         "${contact.name.substring(0, 1)}${contact.lastName.substring(0, 1)}";
     return ListTile(
-        dense: true,
+        dense: dense,
         leading: CircleAvatar(
           child: Text(shortName),
         ),

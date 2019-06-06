@@ -111,8 +111,13 @@ class _MyHomePageState extends State<MyHomePage>
     ], 10);
     return Scaffold(
         bottomNavigationBar: Container(
-          decoration: BoxDecoration(color: Color(0xf7f7f7f7)),
-          height: 53.0,
+          decoration: BoxDecoration(
+            color: Color(0xf7f7f7f7),
+            border: Border(
+                top: BorderSide(
+                    width: 1.0, color: Theme.of(context).dividerColor)),
+          ),
+          height: 54.0,
           child: TabBar(
             onTap: (index) => _updateTabs(index),
             controller: _controller,

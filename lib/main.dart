@@ -132,20 +132,28 @@ class _MyHomePageState extends State<MyHomePage>
         body: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
-              pinned: true,
-              backgroundColor: Color(0xf7f7f7f7),
-              title: Text('Contacts',
-                  style: TextStyle(color: Colors.black, fontSize: 17.0)),
-              actions: [
-                IconButton(
-                  icon: Icon(Icons.add),
-                  color: Color(0xFF5E92D7),
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onPressed: () {},
-                ),
-              ],
-            ),
+                pinned: true,
+                backgroundColor: Color(0xf7f7f7f7),
+                title: Text('Contacts',
+                    style: TextStyle(color: Colors.black, fontSize: 17.0)),
+                actions: [
+                  IconButton(
+                    icon: Icon(Icons.add),
+                    color: Color(0xFF5E92D7),
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onPressed: () {},
+                  ),
+                ],
+                bottom: PreferredSize(
+                  preferredSize: Size(1.0, 1.0),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          border: Border(
+                              bottom: BorderSide(
+                                  width: 1.0,
+                                  color: Theme.of(context).dividerColor)))),
+                )),
             SliverList(
               delegate: SliverChildListDelegate([
                 Container(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_ui_example_1/widgets/bottomBar.dart';
 import 'package:my_ui_example_1/widgets/contact.dart';
+import 'package:my_ui_example_1/widgets/settings.dart';
 
 import 'models/contact.dart';
 
@@ -96,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage>
         body: TabBarView(controller: _tabController, children: [
           ContactsPage(contacts),
           Icon(Icons.directions_transit),
-          Icon(Icons.directions_bike),
+          SettingsPage(),
         ]));
   }
 }

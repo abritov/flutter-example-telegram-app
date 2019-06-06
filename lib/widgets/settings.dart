@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:my_ui_example_1/widgets/search.dart';
 
 class SettingsPage extends StatelessWidget {
+  ScrollController _scrollController =
+      ScrollController(initialScrollOffset: 55.2);
   @override
   Widget build(BuildContext context) {
     final _borderSideDivider =
@@ -15,9 +17,10 @@ class SettingsPage extends StatelessWidget {
       icon: Icon(Icons.arrow_forward_ios),
       iconSize: 15.0,
     );
-    return CustomScrollView(slivers: [
+    return CustomScrollView(controller: _scrollController, slivers: [
       SliverAppBar(
           pinned: true,
+          elevation: 0.0,
           backgroundColor: Color(0xf7f7f7f7),
           title: Padding(
             padding: EdgeInsets.only(top: 8.0),

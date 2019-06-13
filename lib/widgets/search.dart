@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SearchBoxWidget extends StatelessWidget {
+  SearchBoxWidget({this.hint = "Search"});
+
+  String hint;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,7 +19,7 @@ class SearchBoxWidget extends StatelessWidget {
             textColor: Colors.grey,
             icon: Icon(Icons.search),
             label: Text(
-              "Search",
+              hint,
               style: TextStyle(fontSize: 16.0),
             )));
   }

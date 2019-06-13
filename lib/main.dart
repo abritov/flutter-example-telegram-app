@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_ui_example_1/models/chat.dart';
 import 'package:my_ui_example_1/widgets/bottomBar.dart';
 import 'package:my_ui_example_1/widgets/chat.dart';
 import 'package:my_ui_example_1/widgets/contact.dart';
@@ -74,7 +75,26 @@ class _MyHomePageState extends State<MyHomePage>
       ContactModel(
           name: "Phill", lastName: "Shiller", lastSeen: "40 minutes ago"),
       ContactModel(name: "Steve", lastName: "Balmer", lastSeen: "recently"),
+      ContactModel(name: "Tina", lastSeen: "recently"),
     ], 10);
+    final chats = repeat([
+      ChatModel(contacts[0], history: [
+        MessageModel(
+            contacts[0], "Hi", DateTime.now().subtract(Duration(hours: 2)))
+      ]),
+      ChatModel(contacts[1], history: [
+        MessageModel(contacts[1], "Call me later",
+            DateTime.now().subtract(Duration(minutes: 2)))
+      ]),
+      ChatModel(contacts[2], history: [
+        MessageModel(contacts[2], "Buy some apples",
+            DateTime.now().subtract(Duration(hours: 1)))
+      ]),
+      ChatModel(contacts[3], history: [
+        MessageModel(
+            contacts[3], "Hi", DateTime.now().subtract(Duration(hours: 4)))
+      ]),
+    ], 3);
     return Scaffold(
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
@@ -100,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage>
             physics: NeverScrollableScrollPhysics(),
             children: [
               ContactsPage(contacts),
-              ChatPage(),
+              ChatPage(chats),
               SettingsPage(),
             ]));
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_ui_example_1/widgets/bottomBar.dart';
+import 'package:my_ui_example_1/widgets/chat.dart';
 import 'package:my_ui_example_1/widgets/contact.dart';
 import 'package:my_ui_example_1/widgets/settings.dart';
 
@@ -99,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage>
             physics: NeverScrollableScrollPhysics(),
             children: [
               ContactsPage(contacts),
-              Icon(Icons.directions_transit),
+              ChatPage(),
               SettingsPage(),
             ]));
   }

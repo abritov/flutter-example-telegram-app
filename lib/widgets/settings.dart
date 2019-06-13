@@ -41,6 +41,7 @@ class SettingsPage extends StatelessWidget {
           ),
           trailing: FlatButton(
             onPressed: () {},
+            splashColor: Colors.transparent,
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[

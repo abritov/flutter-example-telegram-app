@@ -9,8 +9,8 @@ class SearchBoxWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 35.0,
-        margin: EdgeInsets.all(10.0),
+        height: 33.0,
+        margin: EdgeInsets.only(right: 13.0),
         decoration: BoxDecoration(
             color: Color(0xe9e9e9e9),
             borderRadius: BorderRadius.all(Radius.circular(8.0))),

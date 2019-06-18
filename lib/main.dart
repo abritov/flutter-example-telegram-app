@@ -98,6 +98,7 @@ class _MyHomePageState extends State<MyHomePage>
           onTap: (index) => _updateTabs(index),
           items: _renderTabs(_selectedTabIndex),
           activeColor: CupertinoColors.activeBlue,
+          backgroundColor: Colors.grey[100],
           currentIndex: _selectedTabIndex,
         ),
         body: TabBarView(

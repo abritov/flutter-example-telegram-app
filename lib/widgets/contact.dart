@@ -46,6 +46,7 @@ class ContactsPage extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           CupertinoSliverNavigationBar(
+            backgroundColor: Colors.grey[100],
             middle: Text("Contacts"),
             largeTitle: SearchBoxWidget(),
             trailing: IconTheme(

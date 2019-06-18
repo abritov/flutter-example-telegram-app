@@ -73,7 +73,7 @@ class ContactsPage extends StatelessWidget {
                 decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
                     border: Border(
-                        bottom: BorderSide(
+                        top: BorderSide(
                             width: 1.0,
                             color: Theme.of(context).dividerColor))),
                 child: ContactWidget(contacts[index], true),

@@ -58,12 +58,15 @@ class ContactsPage extends StatelessWidget {
             delegate: SliverChildListDelegate([
               ListTile(
                   leading: Padding(
-                      padding: EdgeInsets.only(left: 8.0),
+                      padding: EdgeInsets.only(left: 5.0),
                       child: IconTheme(
-                          data: IconThemeData(color: Colors.blue),
-                          child: Icon(Icons.person_add))),
-                  title: Text("Invite Friends",
-                      style: TextStyle(color: Colors.blue))),
+                          data: IconThemeData(color: Colors.blue, size: 33.0),
+                          child: Icon(CupertinoIcons.person_add))),
+                  title: Padding(
+                    padding: EdgeInsets.only(top: 5.0),
+                    child: Text("Invite Friends",
+                        style: TextStyle(color: Colors.blue)),
+                  )),
             ]),
           ),
           SliverList(

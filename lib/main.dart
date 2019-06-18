@@ -21,7 +21,7 @@ List<T> repeat<T>(List<T> listIn, int times) {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
+    return MaterialApp(
       title: 'Telegram UI',
       home: MyHomePage(),
     );
@@ -90,21 +90,28 @@ class _MyHomePageState extends State<MyHomePage>
             contacts[3], "Hi", DateTime.now().subtract(Duration(hours: 4)))
       ]),
     ], 3);
-    return Scaffold(
-        bottomNavigationBar: CupertinoTabBar(
-          onTap: (index) => _updateTabs(index),
-          items: _renderTabs(_selectedTabIndex),
-          activeColor: CupertinoColors.activeBlue,
-          backgroundColor: Colors.grey[100],
-          currentIndex: _selectedTabIndex,
-        ),
-        body: TabBarView(
-            controller: _tabController,
-            physics: NeverScrollableScrollPhysics(),
-            children: [
-              ContactsPage(contacts),
-              ChatPage(chats),
-              SettingsPage(),
-            ]));
+    return Theme(
+      data: ThemeData(
+        fontFamily: '.SF Pro Text',
+      ).copyWith(canvasColor: Colors.transparent),
+      child: CupertinoTabScaffold(
+          tabBar: CupertinoTabBar(
+            onTap: (index) => _updateTabs(index),
+            items: _renderTabs(_selectedTabIndex),
+            activeColor: CupertinoColors.activeBlue,
+            backgroundColor: Colors.grey[100],
+            currentIndex: _selectedTabIndex,
+          ),
+          tabBuilder: (context, index) {
+            switch (index) {
+              case 0:
+                return ContactsPage(contacts);
+              case 1:
+                return ChatPage(chats);
+              case 2:
+                return SettingsPage();
+            }
+          }),
+    );
   }
 }

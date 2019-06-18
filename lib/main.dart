@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_ui_example_1/models/chat.dart';
 import 'package:my_ui_example_1/widgets/bottomBar.dart';
@@ -56,13 +57,18 @@ class _MyHomePageState extends State<MyHomePage>
     setState(() {
       _bottomTabs = [
         TgBottomTabStateless(
-            icon: Icons.person_pin, title: "Contacts", focused: index == 0),
+            icon: CupertinoIcons.person_solid,
+            title: "Contacts",
+            focused: index == 0),
         TgBottomTabStateless(
-            icon: Icons.chat_bubble_outline,
+            icon: IconData(0xf3fc,
+                fontFamily: 'CupertinoIcons', fontPackage: 'cupertino_icons'),
             title: "Chats",
             focused: index == 1),
         TgBottomTabStateless(
-            icon: Icons.settings, title: "Settings", focused: index == 2),
+            icon: CupertinoIcons.settings_solid,
+            title: "Settings",
+            focused: index == 2),
       ];
     });
   }
@@ -103,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage>
                 top: BorderSide(
                     width: 1.0, color: Theme.of(context).dividerColor)),
           ),
-          height: 54.0,
+          height: 56.0,
           child: TabBar(
             onTap: (index) => _updateTabs(index),
             controller: _tabController,

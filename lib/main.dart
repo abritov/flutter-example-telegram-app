@@ -21,11 +21,8 @@ List<T> repeat<T>(List<T> listIn, int times) {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+    return CupertinoApp(
+      title: 'Telegram UI',
       home: MyHomePage(),
     );
   }

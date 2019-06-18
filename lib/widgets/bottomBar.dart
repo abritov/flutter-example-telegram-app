@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -20,6 +21,15 @@ class TgBottomTabStateless extends StatelessWidget {
           title,
           style: TextStyle(
               color: focused ? Colors.blue : Colors.grey, fontSize: 12.0),
+        ));
+  }
+
+  static createCupertinoTab({IconData icon, String title}) {
+    return BottomNavigationBarItem(
+        icon: Icon(icon),
+        title: Text(
+          title,
+          style: TextStyle(fontSize: 12.0),
         ));
   }
 }

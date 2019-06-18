@@ -48,20 +48,15 @@ class _MyHomePageState extends State<MyHomePage>
     _tabController = TabController(initialIndex: 0, length: 3, vsync: this);
   }
 
-  List<Widget> _renderTabs(int index) => [
-        TgBottomTabStateless(
-            icon: CupertinoIcons.person_solid,
-            title: "Contacts",
-            focused: index == 0),
-        TgBottomTabStateless(
+  List<BottomNavigationBarItem> _renderTabs(int index) => [
+        TgBottomTabStateless.createCupertinoTab(
+            icon: CupertinoIcons.person_solid, title: "Contacts"),
+        TgBottomTabStateless.createCupertinoTab(
             icon: IconData(0xf3fc,
                 fontFamily: 'CupertinoIcons', fontPackage: 'cupertino_icons'),
-            title: "Chats",
-            focused: index == 1),
-        TgBottomTabStateless(
-            icon: CupertinoIcons.settings_solid,
-            title: "Settings",
-            focused: index == 2),
+            title: "Chats"),
+        TgBottomTabStateless.createCupertinoTab(
+            icon: CupertinoIcons.settings_solid, title: "Settings"),
       ];
 
   void _updateTabs(int index) {
@@ -99,24 +94,11 @@ class _MyHomePageState extends State<MyHomePage>
       ]),
     ], 3);
     return Scaffold(
-        bottomNavigationBar: Container(
-          decoration: BoxDecoration(
-            color: Color(0xf7f7f7f7),
-            border: Border(
-                top: BorderSide(
-                    width: 1.0, color: Theme.of(context).dividerColor)),
-          ),
-          height: 56.0,
-          child: TabBar(
-            onTap: (index) => _updateTabs(index),
-            controller: _tabController,
-            indicatorColor: Colors.transparent,
-            tabs: _renderTabs(_selectedTabIndex),
-          ),
-        ),
-        appBar: PreferredSize(
-          preferredSize: Size(0.0, 0.0),
-          child: Text(""),
+        bottomNavigationBar: CupertinoTabBar(
+          onTap: (index) => _updateTabs(index),
+          items: _renderTabs(_selectedTabIndex),
+          activeColor: CupertinoColors.activeBlue,
+          currentIndex: _selectedTabIndex,
         ),
         body: TabBarView(
             controller: _tabController,

@@ -42,48 +42,50 @@ class ContactsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      child: CustomScrollView(
-        slivers: [
-          CupertinoSliverNavigationBar(
-            backgroundColor: Colors.grey[100],
-            middle: Text("Contacts"),
-            largeTitle: SearchBoxWidget(),
-            trailing: IconTheme(
-                data: IconThemeData(
-                    color: CupertinoColors.activeBlue, size: 30.0),
-                child: Icon(CupertinoIcons.add)),
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate([
-              ListTile(
-                  leading: Padding(
-                      padding: EdgeInsets.only(left: 5.0),
-                      child: IconTheme(
-                          data: IconThemeData(color: Colors.blue, size: 33.0),
-                          child: Icon(CupertinoIcons.person_add))),
-                  title: Padding(
-                    padding: EdgeInsets.only(top: 5.0),
-                    child: Text("Invite Friends",
-                        style: TextStyle(color: Colors.blue)),
-                  )),
-            ]),
-          ),
-          SliverList(
-            delegate:
-                SliverChildBuilderDelegate((BuildContext context, int index) {
-              return Container(
-                decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    border: Border(
-                        top: BorderSide(
-                            width: 1.0,
-                            color: Theme.of(context).dividerColor))),
-                child: ContactWidget(contacts[index], true),
-              );
-            }, childCount: contacts.length),
-          ),
-        ],
+    return Material(
+      child: CupertinoPageScaffold(
+        child: CustomScrollView(
+          slivers: [
+            CupertinoSliverNavigationBar(
+              backgroundColor: Colors.grey[100],
+              middle: Text("Contacts"),
+              largeTitle: SearchBoxWidget(),
+              trailing: IconTheme(
+                  data: IconThemeData(
+                      color: CupertinoColors.activeBlue, size: 30.0),
+                  child: Icon(CupertinoIcons.add)),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                ListTile(
+                    leading: Padding(
+                        padding: EdgeInsets.only(left: 5.0),
+                        child: IconTheme(
+                            data: IconThemeData(color: Colors.blue, size: 33.0),
+                            child: Icon(CupertinoIcons.person_add))),
+                    title: Padding(
+                      padding: EdgeInsets.only(top: 5.0),
+                      child: Text("Invite Friends",
+                          style: TextStyle(color: Colors.blue)),
+                    )),
+              ]),
+            ),
+            SliverList(
+              delegate:
+                  SliverChildBuilderDelegate((BuildContext context, int index) {
+                return Container(
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      border: Border(
+                          top: BorderSide(
+                              width: 1.0,
+                              color: Theme.of(context).dividerColor))),
+                  child: ContactWidget(contacts[index], true),
+                );
+              }, childCount: contacts.length),
+            ),
+          ],
+        ),
       ),
     );
   }

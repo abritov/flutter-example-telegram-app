@@ -41,21 +41,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
-  List<Widget> _bottomTabs = [
-    TgBottomTabStateless(
-        icon: Icons.person_pin, title: "Contacts", focused: true),
-    TgBottomTabStateless(icon: Icons.chat_bubble_outline, title: "Chats"),
-    TgBottomTabStateless(icon: Icons.settings, title: "Settings"),
-  ];
+  int _selectedTabIndex = 0;
 
   @override
   void initState() {
     _tabController = TabController(initialIndex: 0, length: 3, vsync: this);
   }
 
-  void _updateTabs(int index) {
-    setState(() {
-      _bottomTabs = [
+  List<Widget> _renderTabs(int index) => [
         TgBottomTabStateless(
             icon: CupertinoIcons.person_solid,
             title: "Contacts",
@@ -70,6 +63,10 @@ class _MyHomePageState extends State<MyHomePage>
             title: "Settings",
             focused: index == 2),
       ];
+
+  void _updateTabs(int index) {
+    setState(() {
+      _selectedTabIndex = index;
     });
   }
 
@@ -114,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage>
             onTap: (index) => _updateTabs(index),
             controller: _tabController,
             indicatorColor: Colors.transparent,
-            tabs: _bottomTabs,
+            tabs: _renderTabs(_selectedTabIndex),
           ),
         ),
         appBar: PreferredSize(

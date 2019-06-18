@@ -30,8 +30,8 @@ class ChatWidget extends StatelessWidget {
   }
 }
 
-class ChatPage extends StatelessWidget {
-  ChatPage(this.chats);
+class ChatsPage extends StatelessWidget {
+  ChatsPage(this.chats);
 
   List<ChatModel> chats;
 

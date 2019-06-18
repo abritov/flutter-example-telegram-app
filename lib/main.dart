@@ -107,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage>
               case 0:
                 return ContactsPage(contacts);
               case 1:
-                return ChatPage(chats);
+                return ChatsPage(chats);
               case 2:
                 return SettingsPage();
             }
